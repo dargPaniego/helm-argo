@@ -23,6 +23,17 @@ aplicaciones:
       type: ClusterIP
       port: 6379
 
+  - nombre: utilidades-ubuntu
+    replicaCount: 2
+    image:
+      repository: ubuntu
+      tag: "22.04"
+      pullPolicy: IfNotPresent
+    service:
+      type: ClusterIP
+      port: 8080 # Un puerto cualquiera, ya que Ubuntu no suele traer servicio web por defecto
+
+
 # This is for the secrets for pulling an image from a private repository more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
 imagePullSecrets: []
 # This is to override the chart name.
