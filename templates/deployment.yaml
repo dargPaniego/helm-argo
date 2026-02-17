@@ -21,9 +21,13 @@ spec:
     spec:
       containers:
         - name: {{ .nombre }}
-          # Combinamos el repositorio y el tag que definiste en la lista
           image: "{{ .image.repository }}:{{ .image.tag | default "latest" }}"
-          imagePullPolicy: {{ .image.pullPolicy }}
+          # --- AÑADE ESTO AQUÍ ABAJO ---
+          {{- if contains "ubuntu" .image.repository }}
+          command: ["/bin/bash", "-c"]
+          args: ["while true; do sleep 30; done"]
+          {{- end }}
+          # -----------------------------
           ports:
             - name: http
               containerPort: {{ .service.port }}
