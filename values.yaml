@@ -5,7 +5,7 @@
 aplicaciones:
   - nombre: frontend-web
     namespace: tns
-    replicaCount: 5
+    replicaCount: 7
     image:
       repository: nginx
       tag: "latest"
