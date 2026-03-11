@@ -4,7 +4,7 @@
 
 aplicaciones:
   - nombre: frontend-web
-    namespace: testns
+    namespace: tns
     replicaCount: 2
     image:
       repository: nginx
@@ -15,7 +15,7 @@ aplicaciones:
       port: 80
 
   - nombre: backend-api
-    namespace: testns
+    namespace: tns
     replicaCount: 1
     image:
       repository: redis
@@ -26,7 +26,7 @@ aplicaciones:
       port: 6379
 
   - nombre: utilidades-ubuntu
-    namespace: testns
+    namespace: tns
     replicaCount: 2
     image:
       repository: ubuntu
