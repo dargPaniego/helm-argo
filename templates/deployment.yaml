@@ -4,6 +4,7 @@ kind: Deployment
 metadata:
   # Usamos $ para llamar a la función global y le sumamos el nombre de la app
   name: {{ include "mi_app_webb.fullname" $ }}-{{ .nombre }}
+  namespace: {{ .namespace | default "default" }}  # <<<< ESTA ES LA LÍNEA
   labels:
     {{- include "mi_app_webb.labels" $ | nindent 4 }}
 spec:
